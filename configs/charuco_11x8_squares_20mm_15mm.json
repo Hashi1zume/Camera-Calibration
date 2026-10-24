@@ -1,0 +1,9 @@
+{
+  "type": "charuco",
+  "columns": 11,
+  "rows": 8,
+  "spacing_mm": 20,
+  "marker_mm": 15,
+  "dictionary": "DICT_4X4_50",
+  "legacy_pattern": false
+}

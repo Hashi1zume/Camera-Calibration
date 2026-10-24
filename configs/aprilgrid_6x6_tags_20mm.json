@@ -1,0 +1,9 @@
+{
+  "type": "aprilgrid",
+  "columns": 6,
+  "rows": 6,
+  "spacing_mm": 20,
+  "tag_spacing": 0.3,
+  "first_id": 0,
+  "border_bits": 2
+}

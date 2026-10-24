@@ -1,0 +1,49 @@
+name: Test and build Windows applications
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+      - run: python calibrate.py --help
+      - run: python undistort.py --help
+      - run: python capture_gui.py --help
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Build and test
+        shell: pwsh
+        run: ./scripts/build_windows.ps1
+      - name: Smoke-test packaged GUI startup
+        shell: pwsh
+        run: |
+          foreach ($name in @('CameraCalibration', 'CameraUndistortion', 'BoardCapture')) {
+            $process = Start-Process -FilePath ".\dist\$name.exe" -PassThru
+            try {
+              Start-Sleep -Seconds 10
+              if ($process.HasExited) { throw "$name exited during startup: $($process.ExitCode)" }
+            } finally {
+              if (-not $process.HasExited) { Stop-Process -Id $process.Id }
+            }
+          }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: camera-calibration-windows-x64
+          path: dist/
+          if-no-files-found: error
