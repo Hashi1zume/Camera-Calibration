@@ -102,6 +102,7 @@ dist/
 ├── CameraUndistortion.exe
 ├── README.md
 ├── README.ja.md
+├── LICENSE
 └── configs/
 ```
 
@@ -309,4 +310,6 @@ python -m pytest -q
 
 Tests cover synthetic detection for all five target types, AprilGrid correspondences, calibration and comparison output, recursive paths, Japanese image filenames, video output, resolution checks, and overwrite/collision prevention. GUI tests are skipped on Ubuntu without an available display and run in Windows CI. Recorded checks and unverified areas are listed in [docs/validation.md](docs/validation.md) (Japanese). Verify real-camera accuracy, Windows GUI interaction, and required video codecs in your own environment as well.
 
-Before publishing, the rights holder should select a project license and add `LICENSE`. A project license has not been assigned automatically.
+## License
+
+This project is licensed under the [MIT License](LICENSE).

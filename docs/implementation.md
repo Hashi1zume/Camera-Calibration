@@ -23,7 +23,7 @@ Web UIは不要なサーバー依存が増えるため採用しない。
 
 AprilGridはKalibrのtag36h11・ID昇順・左下原点を対象とする。
 このツールはKalibrそのものではなく、OpenCVの単眼pinholeモデルを使用する。
-ライセンスは権利者未指定なので勝手に付与しない。公開前に権利者が選択する。
+ライセンスはユーザー指定のMIT。著作権者は Camera Calibration contributors と表記する。
 
 ## Board capture GUI (2026-10-24)
 

@@ -102,6 +102,7 @@ dist/
 ├── CameraUndistortion.exe
 ├── README.md
 ├── README.ja.md
+├── LICENSE
 └── configs/
 ```
 
@@ -309,4 +310,6 @@ python -m pytest -q
 
 5種類の合成ボードの検出・AprilGridの対応点配置、推定と比較画像出力、再帰構造、日本語の画像パス、動画出力、解像度不一致、上書き・衝突の防止をテストします。GUIテストは表示環境がないUbuntuではスキップし、Windows CIでは実行します。検証実績と未検証範囲は [docs/validation.md](docs/validation.md) に記録しています。実カメラの精度、Windows上のGUI操作、全動画コーデックの動作は利用環境でも確認してください。
 
-公開時のライセンスは権利者が選んで `LICENSE` を追加してください。本ディレクトリではプロジェクトのライセンスを自動決定していません。
+## ライセンス
+
+本プロジェクトは [MITライセンス](LICENSE) で公開しています。
